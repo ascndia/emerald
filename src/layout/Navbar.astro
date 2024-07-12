@@ -1,0 +1,55 @@
+---
+import NavbarItem from "./NavbarItem.astro";
+---
+
+<nav class="navbar navbar-expand-lg pt-4 fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img src="/emerald/favicon.png" alt="Emerald" width="30" />
+      <div class="fw-bold fs-5">Emerald</div>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <NavbarItem href="/" title="Download" />
+        <NavbarItem href="/" title="Pricing" />
+        <NavbarItem href="/" title="Sync" />
+        <NavbarItem href="/" title="Publish" />
+      </ul>
+      <ul class="navbar-nav me-0 mb-2 mb-lg-0">
+        <NavbarItem href="/" title="Community" />
+        <NavbarItem href="/" title="Account" />
+      </ul>
+    </div>
+  </div>
+</nav>
+<style>
+  .navbar-brand {
+    letter-spacing: 0.5px;
+    color: var(--text);
+    transition: 500ms;
+  }
+  .navbar-brand:hover {
+    color: var(--primary) !important;
+  }
+</style>
+<script is:inline>
+  $(document).ready(function () {
+    $("#navbarSupportedContent").on("show.bs.collapse", function () {
+      $(".navbar").addClass("scrolled");
+    });
+    $("#navbarSupportedContent").on("hide.bs.collapse", function () {
+      $(".navbar").removeClass("scrolled");
+    });
+  });
+</script>
