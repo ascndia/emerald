@@ -79,18 +79,18 @@ import NavbarItem from "./NavbarItem.astro";
     border-bottom: 1px solid rgb(36, 36, 36);
   }
 </style>
-<script type="module" is:inline>
+<script>
   import $ from "jquery";
   $(document).ready(function () {
-    function checkScroll() {
-      if ($(window).scrollTop() > 76) {
+    function updateScrollPosition() {
+      const scrollTop = $(document).scrollTop()!;
+      if (scrollTop > 76) {
         $(".navbar").addClass("scrolled");
       } else {
         $(".navbar").removeClass("scrolled");
       }
     }
-    $(window).on("scroll", function () {
-      checkScroll();
-    });
+    updateScrollPosition();
+    $(window).on("scroll", updateScrollPosition);
   });
 </script>
