@@ -79,9 +79,8 @@ import NavbarItem from "./NavbarItem.astro";
     border-bottom: 1px solid rgb(36, 36, 36);
   }
 </style>
-<script>
+<script type="module" is:inline>
   import $ from "jquery";
-
   $(document).ready(function () {
     function checkScroll() {
       if ($(window).scrollTop() > 76) {
