@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+import Emerald from "../../assets/Emerald.png";
+---
+
+<section id="about">
+  <div class="container">
+    <div class="content row">
+      <div class="col-md-6">
+        <div>
+          <div class="mb-4">
+            <h4 class="text-primary">Your thoughts are yours.</h4>
+            <div class="fw-semiboldd fs-4 text-secondary">
+              Emerald stores notes on your device, so you can access them
+              quickly, even offline. No one else can read them, not even us.
+            </div>
+          </div>
+          <div class="mb-4">
+            <h4 class="text-primary">Your mind is unique.</h4>
+            <div style="text" class="fw-semiboldd fs-4 text-secondary">
+              With <span class="highlight"> hundreds of plugins</span> and themes,
+              you can shape Obsidian to fit your way of thinking.
+            </div>
+          </div>
+          <div class="mb-5">
+            <h4 class="text-primary">Your knowledge should last.</h4>
+            <div class="fw-semiboldd fs-4 text-secondary">
+              Emerald uses open, non-proprietary files, so you're never locked
+              in, and can preserve your data for the long term.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center">
+          <div
+            id="emerald-card"
+            class="mx-auto mb-1 p-3"
+            style="background-color:#262626; max-width:fit-content"
+          >
+            <Image width={240} height={240} src={Emerald} alt="Emerald" />
+          </div>
+          <h1 class="my-4 text-primary fw-bold display-5">Emerald</h1>
+          <div id="download" class="mt-2 fs-4">
+            <div class="text-primary">Free for personal use</div>
+            <a class="fw-semibold" href="#">Download now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      section {
+        margin-top: 156px;
+      }
+      .highlight {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      #emerald-card {
+        transition: 800ms;
+        border-radius: 56px;
+      }
+      #emerald-card:hover {
+        scale: 1.08;
+      }
+      #download a {
+        text-decoration: none;
+        transition: 300ms;
+        color: var(--primary);
+      }
+      #download a:hover {
+        color: var(--primary-hover);
+      }
+    </style>
+  </div>
+</section>

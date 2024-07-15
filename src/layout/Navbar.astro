@@ -2,10 +2,10 @@
 import NavbarItem from "./NavbarItem.astro";
 ---
 
-<nav class="navbar navbar-expand-lg pt-4 fixed-top">
+<nav class="navbar navbar-dark navbar-expand-md pt-4 fixed-top">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="/emerald/favicon.png" alt="Emerald" width="30" />
+      <img src="/emerald/favicon.png" alt="Emerald" width="24" />
       <div class="fw-bold fs-5">Emerald</div>
     </a>
     <button
@@ -17,23 +17,29 @@ import NavbarItem from "./NavbarItem.astro";
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span style="color: white;" class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <NavbarItem href="/" title="Download" />
-        <NavbarItem href="/" title="Pricing" />
-        <NavbarItem href="/" title="Sync" />
-        <NavbarItem href="/" title="Publish" />
-      </ul>
-      <ul class="navbar-nav me-0 mb-2 mb-lg-0">
-        <NavbarItem href="/" title="Community" />
-        <NavbarItem href="/" title="Account" />
-      </ul>
+      <div class="navbar-content">
+        <ul class="navbar-nav me-auto">
+          <NavbarItem href="/" title="Download" />
+          <NavbarItem href="/" title="Pricing" />
+          <NavbarItem href="/" title="Sync" />
+          <NavbarItem href="/" title="Publish" />
+        </ul>
+        <ul class="navbar-nav me-0">
+          <NavbarItem href="/" title="Community" />
+          <NavbarItem href="/" title="Account" />
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
 <style>
+  .navbar {
+    transition: 500ms;
+    background: var(--background);
+  }
   .navbar-brand {
     letter-spacing: 0.5px;
     color: var(--text);
@@ -42,14 +48,50 @@ import NavbarItem from "./NavbarItem.astro";
   .navbar-brand:hover {
     color: var(--primary) !important;
   }
+  .navbar-toggler {
+    z-index: 50;
+    padding: 4px 8px;
+  }
+
+  .navbar-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (max-width: 768px) {
+    .navbar-content {
+      height: 100vh;
+      padding-top: 16px;
+      flex-direction: column;
+      width: 100%;
+      justify-content: start;
+      transition: all 0.4s;
+      background: inherit;
+    }
+    .navbar-nav {
+      width: 100%;
+    }
+  }
+  .scrolled {
+    background: #101010 !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid rgb(36, 36, 36);
+  }
 </style>
-<script is:inline>
+<script>
+  import $ from "jquery";
+
   $(document).ready(function () {
-    $("#navbarSupportedContent").on("show.bs.collapse", function () {
-      $(".navbar").addClass("scrolled");
-    });
-    $("#navbarSupportedContent").on("hide.bs.collapse", function () {
-      $(".navbar").removeClass("scrolled");
+    function checkScroll() {
+      if ($(window).scrollTop() > 76) {
+        $(".navbar").addClass("scrolled");
+      } else {
+        $(".navbar").removeClass("scrolled");
+      }
+    }
+    $(window).on("scroll", function () {
+      checkScroll();
     });
   });
 </script>

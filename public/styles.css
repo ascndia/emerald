@@ -1,8 +1,9 @@
 :root {
   --text: #eeeeee;
-  --text-secondary: #b8b5c1;
-  --background: #1d1d1d;
+  --text-secondary: #9e9e9e;
+  --background: #161616;
   --primary: #35ce6b;
+  --primary-hover: #91ffb7;
   /* --primary: #9bce35; */
 }
 * {
@@ -39,4 +40,7 @@ body {
 }
 .text-primary {
   color: var(--text) !important;
+}
+.text-emerald {
+  color: var(--primary);
 }
